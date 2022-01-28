@@ -1,0 +1,10 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "d:\\Developer\\Cursos\\Alura\\01_Java\\11-JavaJDBC\\java\\mysql-connector-java-8.0.17.jar",
+        "d:\\Developer\\Cursos\\Alura\\01_Java\\11-JavaJDBC\\java\\c3p0-0.9.5.4.jar",
+        "d:\\Developer\\Cursos\\Alura\\01_Java\\11-JavaJDBC\\java\\mchange-commons-java-0.2.16.jar"
+    ]
+}
