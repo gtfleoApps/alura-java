@@ -1,0 +1,57 @@
+-> SOLID:
+- xxx
+- Sempre que uma nova funcionalidade for implementada, o ideal é que possamos criar código novo e editar o mínimo possível de código já existente. Este é um dos principais pontos do princípio Aberto-Fechado (Open-Closed Principle) do SOLID. Ao editar código existente, podemos acabar quebrando funcionalidades já implementadas e funcionais.
+
+-> Site com resumo dos padroes GoF: 
+https://refactoring.guru/design-patterns
+
+-> Geral:
+- Padrões de projeto são soluções genéricas para problemas recorrentes do desenvolvimento de software orientado a objetos;
+- Existem três principais categorias de padrões de projeto:
+    Comportamentais
+    Estruturais
+    Criacionais
+
+-> PADROES COMPORTAMENTAIS:
++ Strategy:
+- Que tipo de problema o padrão Strategy visa resolver?
+Pode ser utilizado quando há diversos possíveis algoritmos para uma ação (como calcular imposto, por exemplo). Nele, nós separamos cada um dos possíveis algoritmos em classes separadas.
+- Padrão de projeto utilizada para diminuir a complexidade do nosso código, trocando múltiplas condicionais por classes.
+
+
++ Chain of Responsibility:
+- Permite criar uma cadeia de possíveis algoritmos (diferente do strategy, onde já se conhece o algoritmo a processar).
+- Ex: 
+Ao se aplicar um imposto, já se sabe qual é o cálculo. Então, usa-se strategy.
+Ao se aplicar um desconto, depende-se de quantidade ou valor e é necessário passar em vários cálculos. Então, usa-se Chain of Responsability.
+
++ Template Method:
+- Favorece o reaproveitamento de códigos comuns entre classes, evitando assim duplicações de códigos.
+- Aplicamos o pattern Template Method com a criação de um método concreto na classe “mãe”, que chama métodos abstratos implementados nas classes “filhas”.
+- Vimos que é possível aplicar mais de um padrão no mesmo código.
+
++ State:
+- É possível que um objeto se comporte de formas diferentes, dependendo do seu estado. Então, se o resultado de uma chamada de método depende do estado, podemos delegar esta ação para uma classe específica do estado atual. Essa técnica é o State pattern.
+- O padrão State, assim como o padrão Strategy, resolve o problema de muitos ifs no código.
+
++ Command:
+- Um caso de uso em nossa aplicação pode ter várias ações (salvar no banco, enviar e-mail, etc);
+- Um caso de uso deve ser extraído para uma classe específica, ao invés de estar no arquivo da CLI, controller ou algo do tipo;
+- Command é a técnica de extração do caso de uso para uma classe específica.
+
++ Command Handler:
+- Variação do Command, muito utilizado no padrão de arquitetura Domain Driven Design.
+- Separa em 2 classes: uma para representar os Dados ou informações necessárias ao comando; e outra para executar o comando, com injeção das dependências necessárias.
+- Um Command Handler tem como responsabilidade, normalmente, apenas orquestrar as tarefas a serem executadas, ou seja, chamar as classes necessárias que realizam as tarefas desejadas.
+
++ Observer:
+- Uma classe observer/listener fica observando um evento disparado em outra classe.
+- Essa última, possui uma lista de acoes (de uma interface), recebida em seu construtor, não sendo mais necessario realizar implementacoes/alteracoes nesse codigo, quando houver inclusao ou exclusao de acoes (de classes observer).
+- O modulo executor, instancia o objeto (um handler de execucao) e passa, em seu construtor, as classes observer como uma lista.
+
+-> PADROES ESTRUTURAIS:
++ Adapter:
++ Decorator:
++ Composite:
++ Facade:
++ Proxy:
