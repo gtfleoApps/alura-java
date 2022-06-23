@@ -3,6 +3,7 @@ package alura.com.br.loja.pedido;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import alura.com.br.loja.orcamento.ItemOrcamento;
 import alura.com.br.loja.orcamento.Orcamento;
 import alura.com.br.loja.pedido.acao.AcaoAposGerarPedido;
 
@@ -19,7 +20,8 @@ public class GeraPedidoHandler {
     }
 
     public void executar(GeraPedido geraPedido) {
-        Orcamento orcamento = new Orcamento(geraPedido.getValorOrcamento(), geraPedido.getQuantidadeItens());
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionarItem(new ItemOrcamento(geraPedido.getValorOrcamento()));
         Pedido pedido = new Pedido(geraPedido.getCliente(), LocalDateTime.now(), orcamento);
 
         // utilizacao dos servicos de infra:

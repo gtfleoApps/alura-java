@@ -7,24 +7,32 @@ import alura.com.br.loja.desconto.CalculadoraDeDescontos;
 import alura.com.br.loja.imposto.CalculadoraDeImpostos;
 import alura.com.br.loja.imposto.ICMS;
 import alura.com.br.loja.imposto.ISS;
+import alura.com.br.loja.orcamento.ItemOrcamento;
 import alura.com.br.loja.orcamento.Orcamento;
 import alura.com.br.loja.pedido.GeraPedido;
 import alura.com.br.loja.pedido.GeraPedidoHandler;
 import alura.com.br.loja.pedido.acao.EnviarEmailPedido;
 import alura.com.br.loja.pedido.acao.SalvarPedidoNoBancoDeDados;
 
-public class Teste {
+public class TesteMain {
     public static void main(String[] args) {
-        Orcamento o1 = new Orcamento(new BigDecimal("1000"), 5);
-        Orcamento o2 = new Orcamento(new BigDecimal("1000"), 10);
-        Orcamento o3 = new Orcamento(new BigDecimal("100"), 5);
-        Orcamento o4 = new Orcamento(new BigDecimal("100"), 10);
-        o2.aprovar();
-        o3.reprovar();
-        o4.aprovar();
-        o4.finalizar();
 
-        Orcamento orcamento = o4;
+        Orcamento orcamento = new Orcamento();
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("500")));
+        System.out.println(orcamento);
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("500")));
+        System.out.println(orcamento);
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("100")));
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("100")));
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("100")));
+        orcamento.adicionarItem(new ItemOrcamento(new BigDecimal("100")));
+        System.out.println(orcamento);
+
+        orcamento.aprovar();
+        // orcamento.reprovar();
+        System.out.println(orcamento);
+        orcamento.finalizar();
+        System.out.println(orcamento);
 
         // Strategy-04: Executando o calculo de acordo com o tipo de implementacao
         // desejada (Strategy-02):
@@ -55,5 +63,17 @@ public class Teste {
 
         handler.executar(gerador);
         // --- State-04: Fim
+
+        // Adapter: Executando teste de API
+        // TesteAdapter testeAdapter = new TesteAdapter();
+        // testeAdapter.testar();
+
+        // Decorator: Executando soma de impostos
+        TesteDecorator testeDecorator = new TesteDecorator();
+        testeDecorator.testar();
+
+        // Decorator: Executando soma de impostos
+        TesteComposicao testeComposicao = new TesteComposicao();
+        testeComposicao.testar();
     }
 }

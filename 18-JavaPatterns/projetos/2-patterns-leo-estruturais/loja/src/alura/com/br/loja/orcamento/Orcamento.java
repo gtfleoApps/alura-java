@@ -1,35 +1,64 @@
 package alura.com.br.loja.orcamento;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import alura.com.br.loja.orcamento.situacao.EmAnalise;
+import alura.com.br.loja.orcamento.situacao.Finalizado;
 import alura.com.br.loja.orcamento.situacao.SituacaoOrcamento;
 
-public class Orcamento {
+// Composite-04: Implementa orcavel
+public class Orcamento implements Orcavel {
 
     private BigDecimal valor;
-    private int quantidadeItens;
+    // private int quantidadeItens;
+
+    // Composite-02: Incluindo os itens do orcamento:
+    // private List<ItemOrcamento> itens;
+
+    // Composite-04: Substitui item orcamento por qualquer orcavel
+    // (podendo agora ser item ou orcamento):
+    private List<Orcavel> itens;
 
     // State-01: situacao eh generico (classe mae), para poder receber qualquer
     // estado especifico (classe filha):
     private SituacaoOrcamento situacao;
 
-    public Orcamento(BigDecimal valor, int quantidadeItens) {
-        this.valor = valor;
-        this.quantidadeItens = quantidadeItens;
+    // Composite-02: Construtor anterior:
+    // public Orcamento(BigDecimal valor, int quantidadeItens) {
+    // this.valor = valor;
+    // this.quantidadeItens = quantidadeItens;
+    // this.situacao = new EmAnalise();
+    // }
+    // Composite-02: Refazimento do construtor:
+    public Orcamento() {
+        this.valor = BigDecimal.ZERO;
+        this.itens = new ArrayList<>();
         this.situacao = new EmAnalise();
     }
 
+    @Override
     public BigDecimal getValor() {
+        // Proxy-02: Simulando um tempo de resposta com Thread:
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
         return this.valor;
     }
 
     public int getQuantidadeItens() {
-        return this.quantidadeItens;
+        // Composite-02: quantidade de itens anterior
+        // return this.quantidadeItens;
+        // Composite-02: quantidade de itens eh o tamanho do array:
+        return this.itens.size();
     }
 
     public SituacaoOrcamento getSituacao() {
-        return situacao;
+        return this.situacao;
     }
 
     public void setSituacao(SituacaoOrcamento situacao) {
@@ -57,6 +86,17 @@ public class Orcamento {
 
     public void finalizar() {
         this.situacao.finalizar(this);
+    }
+
+    public boolean isFinalizado() {
+        return this.situacao instanceof Finalizado;
+    }
+
+    // Composite-02: Adicionando itens
+    // Composite-04: Substitui item orcamento por qualquer orcavel
+    public void adicionarItem(Orcavel item) {
+        this.itens.add(item);
+        this.valor = this.valor.add(item.getValor());
     }
 
 }

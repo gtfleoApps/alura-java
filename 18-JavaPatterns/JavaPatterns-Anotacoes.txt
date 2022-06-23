@@ -51,7 +51,36 @@ Ao se aplicar um desconto, depende-se de quantidade ou valor e é necessário pa
 
 -> PADROES ESTRUTURAIS:
 + Adapter:
+- Devemos sempre preferir depender de abstrações, ou seja, interfaces ou classes abstratas, sempre que possível, ao invés de implementações específicas. Inclusive, esse é um dos princípio de SOLID (Dependency Inversion Principle, a letra D). 
+- Quando precisamos utilizar código legado ou código de componentes externos em nosso sistema, é muito comum não ter a interface (métodos públicos) batendo com o que a gente precisa, então nesses casos nós criamos adapters. Esse padrão é muito simples e muito utilizado no dia a dia do desenvolvimento.
+- Padrões estruturais nos ajudam a relacionar diversas classes de forma organizada.
+- Detalhes de infraestrutura devem ser abstraídos através de interfaces.
+- O padrão Adapter pode nos ajudar a trocar detalhes de infraestrutura, sem muitas dores de cabeça.
+
 + Decorator:
+- O padrão Decorator permite adicionar novos comportamentos a um objeto, em tempo de execução, tornando o código bastante flexível e dinâmico.
+- O Decorator precisar possuir a mesma interface do objeto que ele está decorando.
+
 + Composite:
+- Parecido com o Decorator, com a diferença de compor objetos como sendo uma estrutura em árvore, hierárquica.
+
 + Facade:
+- É a exposição de parte das funcionalidades de um sub-sistema através de uma classe. Esta, responsável por ser essa fachada, implementa o padrão Facade.
+- Em determinados casos, nós podemos precisar de um acesso simplificado a uma parte complexa ou grande do nosso sistema, como autenticação, acesso a sistema de arquivos, cache, etc. Uma classe de fachada, contendo apenas a funcionalidade desejada, pode ser bastante útil.
+
 + Proxy:
+- Quando se intercepta uma requisição, para realizar algum tratamento.
+- Podemos utilizar o padrão Proxy para interceptar classes e executar regras de segurança. Outro bom motivo é performance.
+
+
+
+
+
+
+
+
+
+
+
+
+
