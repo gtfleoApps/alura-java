@@ -71,16 +71,3 @@ Ao se aplicar um desconto, depende-se de quantidade ou valor e é necessário pa
 + Proxy:
 - Quando se intercepta uma requisição, para realizar algum tratamento.
 - Podemos utilizar o padrão Proxy para interceptar classes e executar regras de segurança. Outro bom motivo é performance.
-
-
-
-
-
-
-
-
-
-
-
-
-

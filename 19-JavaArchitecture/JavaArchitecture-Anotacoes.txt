@@ -1,0 +1,59 @@
+=======================
+ARQUITETURA DE SOFTWARE 
+=======================
++ Em Camadas (ex: MVC):
+	User Interface (View)
+	Business (Controller: regras de negocios)
+	Data (Model: persistencia)
++ Onion Architecture (De dentro para fora):
+	1.Domain Model
+	2.Domain Services
+	3.Application Services
+	4.1.User Interface (tela)
+	4.2.Infrastructure (banco de dados)
+	4.3.Tests (testes)
++ Hexagonal Architecture (similar ao onion)
+
++ Clean Architecture:
+ ------ ------------
+	1.Enterprise Business Rules (Regras de negócio da aplicação)
+		Entities 
+	2.Application Business Rules (Lógica/controle de fluxo de execução das regras que estão na camada interna)
+		Use Cases 
+	3.Interface Adapters (Adaptadores que irão conversar com a parte externa)
+		Controllers
+		Gateways
+		Presenters
+	4.Frameworks & Drivers (Mundo externo e infraestrutura)
+		Devices
+		Web
+		DB
+		UI
+		External Interfaces
+
+- A comunicação se dá de fora para dentro.
+- Isola o código de domínio da aplicação.
+- Inversão de dependências (infraestrutura e regras é que interagem com o domínio, com uso de interfaces).
+- Favorece boas práticas de Orientação a Objetos (baixo acomplamento e alta coesão).
+- Código de domínio com alta "testabilidade".
+- O domínio da aplicação é Independente de frameworks e de deltalhes da infraestrutura.
+
+
+-> Clean Architecture:
+Link Screaming Architecture: https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html
+
+- O conceito de classes Services e mais especifico Domain, Application e Infrastructure Services
+- Domain Services são classes que representam uma ação entre mais de uma entidade.
+- Application Services controlam o fluxo de alguma regra em nossa aplicação.
+- Infrastructure Services são implementações de interfaces presentes nas camadas de domínio ou de aplicação.
+- Os termos Use Case, Application Service e Command Handler são basicamente sinônimos e servem para fornecer pontos de entrada na sua aplicação, de forma independente dos mecanismos de entrega (Web, CLI, etc).
+
+-> Livros Sugeridos:
+Clean Architecture - Robert C. Martin
+Domain-Driven Design - Eric Evans
+Get Your Hands Dirty on Clean Architecture - Tom...
+
+
+====================
+DOMAIN-DRIVEN DESIGN
+====================
