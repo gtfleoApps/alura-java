@@ -1,0 +1,1 @@
+Pacote que representa o contexto compartilhado, entre academico e gameficacao.
