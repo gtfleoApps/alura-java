@@ -19,6 +19,7 @@ public class UsuarioResource {
     @Consumes(MediaType.APPLICATION_JSON)
     public void inserir(Usuario usuario) {
         // persist eh um metodo estatico que estah em PanacheEntityBase
+        // (herdada por Usuario, que a estende )
         Usuario.persist(usuario);
     }
 

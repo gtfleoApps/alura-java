@@ -1,0 +1,58 @@
+QUARKUS:
+https://quarkus.io/
+
+Geracao de Codigo Inicial:
+https://code.quarkus.io/
+- Group: package
+- Artifact: nome-do-projeto
+- Extentions:
+    RESTEasy JAX-RS
+
+COMANDOS BASICOS:
+- Iniciando o projeto no modo desenvolvedor:
+> cd pasta-do-projeto
+> mvn install quarkus:dev
+
+- Iniciando o projeto 2 com um bash que monta container MySql:
+> cd pasta-do-projeto
+> ./run.sh
+
+- Entrando no container MySql:
+> docker exec -it nome-de-container mysql -u root -p
+
+- Incluindo dependencia Swagger:
+> ./mvnw quarkus:add-extension -Dextensions="quarkus-smallrye-openapi"
+
+
+DEPENDENCIAS:
+- Incluidas no projeto 01:
+    <!-- Para fazer requisição REST: -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-rest-client</artifactId>    
+    </dependency>
+
+    <!-- Bind do Json da API para objeto Java: -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
+    </dependency>
+
+- Incluidas no projeto 02:
+    <!-- Driver do MySql fornecido pelo Quarkus -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-jdbc-mysql</artifactId>      
+    </dependency>
+
+    <!-- Hibernate eh a implementacao do JPA usada pelo Quarkus -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-hibernate-orm-panache</artifactId>
+    </dependency>
+
+    <!-- Open API (Swagger) -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>

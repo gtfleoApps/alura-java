@@ -23,25 +23,28 @@ public class Ordem {
 
     private String status;
 
+    // O Bind entre objeto Java e a tabela soh funciona se os atributos
+    // de ambos possuirem os mesmos nomes. Quando nao for possivel, eh
+    // necessario definir o @Column(name)
     @Column(name = "user_id")
     private Long userId;
 
     public void setPreco(Double preco) {
         this.preco = preco;
     }
-    
+
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    
+
     public void setData(LocalDate data) {
         this.data = data;
     }
-    
+
     public void setStatus(String status) {
         this.status = status;
     }
-    
+
     public void setUserId(Long userId) {
         this.userId = userId;
     }

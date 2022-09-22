@@ -14,7 +14,7 @@ import br.com.alura.repository.OrdemRepository;
 
 @Path("/ordens")
 public class OrdemResource {
-    
+
     @Inject
     OrdemRepository ordemRepository;
 

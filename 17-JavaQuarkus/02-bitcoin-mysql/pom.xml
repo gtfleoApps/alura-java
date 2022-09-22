@@ -38,43 +38,37 @@
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-smallrye-openapi</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.quarkus</groupId>
       <artifactId>quarkus-junit5</artifactId>
       <scope>test</scope>
     </dependency>
-    <!-- Fornece os recursos para teste de endpoints: -->
     <dependency>
       <groupId>io.rest-assured</groupId>
       <artifactId>rest-assured</artifactId>
       <scope>test</scope>
     </dependency>
-
-    <!-- Dependencias usadas no curso: -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-rest-client</artifactId>    
+      <artifactId>quarkus-rest-client</artifactId>
     </dependency>
-
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-resteasy-jsonb</artifactId>      
+      <artifactId>quarkus-resteasy-jsonb</artifactId>
     </dependency>
-
-    <!-- Driver do mysql fornecido pelo quarkus -->
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-jdbc-mysql</artifactId>      
+      <artifactId>quarkus-jdbc-mysql</artifactId>
     </dependency>
-
-    <!-- Hibernate eh a implementacao do JPA usada pelo quarkus -->
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-hibernate-orm-panache</artifactId>
     </dependency>
-
   </dependencies>
   <build>
     <plugins>
-    <!-- plugin responsável pelo empacotamento da aplicação e por fornecer o modo desenvolvedor -->
       <plugin>
         <groupId>${quarkus.platform.group-id}</groupId>
         <artifactId>quarkus-maven-plugin</artifactId>

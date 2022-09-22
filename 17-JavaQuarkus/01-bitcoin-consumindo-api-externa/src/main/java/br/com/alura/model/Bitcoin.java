@@ -2,15 +2,16 @@ package br.com.alura.model;
 
 import java.time.LocalDate;
 
+// Classe01
 // representa as informacoes que o bitcoin tem:
 public class Bitcoin {
-    
+
     private Long id;
-    
+
     private Double preco;
-    
+
     private String tipo;
-    
+
     private LocalDate data;
 
     public Long getId() {
@@ -45,5 +46,4 @@ public class Bitcoin {
         this.data = data;
     }
 
-    
 }

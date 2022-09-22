@@ -9,6 +9,13 @@ import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 // Entidade que faz persistencia dos dados no bd (bind entre aplicacao java e o banco de dados):
 // @Entity - anotação do JPA que indica que essa classe eh elegivel para o modelo do bd
+/* 
+Como funciona a Insercao no BD atraves dessa classe:
+1. O Jsonb farah o bind do Json, proveniente de um front ou outra interface,
+na entidade/objeto Usuario;
+2. Com as anotacoes do JPA, o Hibernate reconhece a entidade como objeto contendo informacoes
+que serao persistidas no banco de dados.
+*/
 @Entity
 public class Usuario extends PanacheEntityBase {
 
@@ -23,6 +30,8 @@ public class Usuario extends PanacheEntityBase {
     private String username;
 
     private String password;
+
+    // Obs: Por ser autogerado, o id nao precisa de setter!
 
     public void setNome(String nome) {
         this.nome = nome;
