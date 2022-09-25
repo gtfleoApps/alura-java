@@ -1,0 +1,40 @@
+Padrão Reposiry
+***************
+
+Gostaria de chamar a atenção de vocês sobre o padrão que nós utilizamos para adição dos nossos usuários.
+
+Nós vimos que nós estamos utilizando o PanacheEntityBase, nós estando estendendo ele a partir da nossa entidade
+para que nós possamos utilizar então os seus métodos de persistência.
+
+Esse padrão é chamado de Active Records, é um padrão que já existe em outras linguagens,
+ele chegou agora no Java com o Hibernate panache só que ele é um pouco polemico. Por que ele é um pouco polêmico?
+
+Se nós formos ver na nossa entidade usuário, nós já utilizamos uma série de recursos do JPA.
+Nós temos o nosso @entity para informar que esse javax.persistence.Entity é uma entidade, nós temos @Id para informar que
+o Long id é primary key lá na nossa tabela, entre outras anotações que nós podemos ter referente ao JPA.
+
+Ou seja, nós fazemos com que essa nossa entidade seja um objeto persistível e, então,
+ela é utilizada pelo Hibernate para fazer as nossas operações com banco de dados.
+
+Além disso, agora ela herda do PanacheEntityBase e nós utilizamos também a nossa entidade para chamar
+métodos de persistência então o usuarioResource nós utilizamos a nossa classe e chamou o método persist que está
+lá no PanacheEntityBase, é um método estático que eu consigo acessar a partir da minha entidade.
+
+Então é polêmica por causar discussões do tipo, será que a minha entidade ela não está muito inflada? 
+Será que ela não está com muita responsabilidade? Então é uma abordagem que muitas vezes as pessoas não gostam de usar.
+
+E pensando nesse cenário, o panache trouxe para nós também um outro padrão que é bem conhecido, 
+inclusive é um padrão utilizado pelo spring, que é o repository.
+
+O repository faz uma abstração do JPA e nós podemos injetar a interface, a classe, os nossos recursos 
+para nós usarmos os métodos de persistência a partir de uma outra interface, a partir de uma outra classe
+que não seja a nossa entidade.
+
+E para nós começarmos a ver o funcionamento desse repository, nós vamos criar uma nova classe que
+vai se chamar “OrdemRepository”.
+
+***
+
+Repository é um padrão de projeto que trabalha com a técnica ORM (Object Relational Mapper). 
+O modelo consiste em fazer uma abstração do JPA (Java Persistence API). 
+O repository é uma classe que fornece métodos de persistência e geralmente é injetado em uma classe Controller ou Service.

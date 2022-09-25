@@ -56,3 +56,9 @@ DEPENDENCIAS:
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-openapi</artifactId>
     </dependency>
+- Incluidas no projeto 03:
+    <!-- Permissoes de acesso ao recurso   -->
+    <dependency>
+      <groupId>io.quarkus</groupId>
+      <artifactId>quarkus-security-jpa</artifactId>
+    </dependency>
